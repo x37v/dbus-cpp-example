@@ -25,7 +25,7 @@ using std::cout;
 using std::endl;
 
 namespace {
-	class IExampleService {
+  class IExampleService {
     public:
       virtual ~IExampleService() = default;
 
@@ -38,7 +38,7 @@ namespace {
       {
         DBUS_CPP_SIGNAL_DEF(Example, IExampleService, bool)
       };
-	};
+  };
 
   class ExampleService: public core::dbus::Skeleton<IExampleService> {
     public:
@@ -59,21 +59,21 @@ namespace {
 
 namespace core
 {
-	namespace dbus
-	{
-		namespace traits
-		{
-			template<>
-				struct Service<IExampleService>
-				{
-					inline static const std::string& interface_name()
-					{
-						static const std::string s("info.x37v.example");
-						return s;
-					}
-				};
-		}
-	}
+  namespace dbus
+  {
+    namespace traits
+    {
+      template<>
+        struct Service<IExampleService>
+        {
+          inline static const std::string& interface_name()
+          {
+            static const std::string s("info.x37v.example");
+            return s;
+          }
+        };
+    }
+  }
 }
 
 
